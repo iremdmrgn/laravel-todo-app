@@ -7,14 +7,14 @@ use App\Models\Task;
 
 class TaskController extends Controller
 {
-    // Tüm görevleri listeleme
+    
     public function index()
     {
         $tasks = Task::all();
         return view('tasks', compact('tasks'));
     }
 
-    // Yeni görev ekleme
+   
     public function store(Request $request)
     {
         $task = new Task;
@@ -26,7 +26,7 @@ class TaskController extends Controller
         return redirect('/tasks');
     }
 
-    // Görevi tamamlandı olarak işaretleme
+   
     public function toggleComplete($id)
     {
         $task = Task::findOrFail($id);
@@ -36,7 +36,7 @@ class TaskController extends Controller
         return redirect('/tasks');
     }
 
-    // Görevi silme
+   
     public function destroy($id)
     {
         $task = Task::findOrFail($id);
